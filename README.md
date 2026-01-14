@@ -17,9 +17,10 @@ Doing the steps above will give you something like this:
 
 From here, you simply have to fill in the data needed, that is to say, to input the files for the video and the vtt caption file. After you have done this, simply click the green "Embed Captions in Video" button, and wait for it work. Once it is done, a preview of the captioned file will appear, and look something like this:
 
-![alt text](https://github.com/DonNguyen123/Caption-Embedding/blob/e4738da22a8fb56280a7c2f9ac0cd495fc7197fd/Instruction%20Images/Input.png)
+![alt text](https://github.com/DonNguyen123/Caption-Embedding/blob/e4738da22a8fb56280a7c2f9ac0cd495fc7197fd/Instruction%20Images/Inputs.png)
 
 From here, you either click the blue "Download" button to get the file in your drive, or the grey "Process Another" to repeat for another file.
 
 ![alt text](https://github.com/DonNguyen123/Caption-Embedding/blob/e4738da22a8fb56280a7c2f9ac0cd495fc7197fd/Instruction%20Images/Result.png)
 
+If this project, please see my other projects, or visit my website at: https://widget-hub.com
