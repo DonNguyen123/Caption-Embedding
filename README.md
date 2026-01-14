@@ -23,4 +23,5 @@ From here, you either click the blue "Download" button to get the file in your d
 
 ![alt text](https://github.com/DonNguyen123/Caption-Embedding/blob/e4738da22a8fb56280a7c2f9ac0cd495fc7197fd/Instruction%20Images/Result.png)
 
-If this project, please see my other projects, or visit my website at: https://widget-hub.com
+If you like this project, please see my other projects, or visit my website at: 
+https://widget-hub.com
