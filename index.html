@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Caption Tool</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Video Caption Tool</h1>
+        <p class="subtitle">Embed VTT captions as subtitle tracks in MP4 videos</p>
+        
+        <div class="info-box">
+            <h4>How this works:</h4>
+            <p><strong>What is VTT?</strong> VTT (WebVTT) is a standard format for text tracks like subtitles, captions, and descriptions. It contains timed text cues that sync with video playback.</p>
+            
+            <p><strong>Embedded vs Burned-in Subtitles:</strong> This tool <strong>embeds VTT captions as separate subtitle tracks</strong> in the MP4 file (not burned into the video). This means: Subtitles remain as a separate layer that can be toggled on/off, video quality is preserved since video isn't re-encoded, and players like VLC, QuickTime, and browsers can control subtitle display.</p>
+
+            <p><strong>How embedding works:</strong> The tool converts your VTT file to MP4-compatible subtitle format (MOV_TEXT codec) and merges it with your video as a separate stream. The video and audio streams are copied without re-encoding to maintain quality and speed up processing.</p>
+            
+            <p><strong>Browser playback:</strong> The processed video below shows subtitles using the browser's native video player with track elements. The downloaded file contains the same embedded subtitles for use in any compatible media player.</p>
+        </div>
+        
+        <div id="status" class="status-loading">
+            <div class="loader" style="display: inline-block; margin-right: 10px;"></div>
+            <span>Loading FFmpeg engine...</span>
+        </div>
+        
+        <div id="mainContent" class="hidden">
+            <div class="upload-section">
+                <div class="upload-box">
+                    <h3>Video File (MP4)</h3>
+                    <input type="file" id="videoInput" accept="video/mp4">
+                    <div class="file-info" id="videoInfo"></div>
+                    <video id="videoPreview" controls class="hidden"></video>
+                </div>
+                
+                <div class="upload-box">
+                    <h3>Caption File (VTT)</h3>
+                    <input type="file" id="vttInput" accept=".vtt,text/vtt">
+                    <div class="file-info" id="vttInfo"></div>
+                    <textarea id="vttContent" placeholder="Or paste VTT content here..."></textarea>
+                </div>
+            </div>
+            
+            <div class="process-section">
+                <button id="processBtn" disabled>
+                    <span id="btnText">Embed Captions in Video</span>
+                    <div class="loader hidden" id="btnLoader"></div>
+                </button>
+                
+                <div class="hidden" id="progressContainer">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <div id="progressText">0%</div>
+                    
+                    <div class="processing-steps" id="processingSteps">
+                        <div class="step pending" id="step1">1. Preparing files...</div>
+                        <div class="step pending" id="step2">2. Converting VTT to MP4 subtitle format...</div>
+                        <div class="step pending" id="step3">3. Merging subtitles with video...</div>
+                        <div class="step pending" id="step4">4. Finalizing output...</div>
+                    </div>
+                    
+                    <div id="timeEstimate">
+                        Processing will begin...
+                    </div>
+                </div>
+            </div>
+            
+            <div id="result" class="hidden">
+                <h3>Video with Embedded Subtitles</h3>
+                <div class="result-content">
+                    <div class="video-section">
+                        <video id="outputVideo" controls>
+                            <!-- Track element will be added here by JavaScript -->
+                        </video>
+                        <div class="video-note">
+                            <p>Subtitles are shown above. The downloaded video has subtitles embedded as a separate track that can be toggled on/off in media players like VLC.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <a id="downloadLink" download="video_with_subtitles.mp4" class="download-btn">Download Video with Subtitles</a>
+                    <button id="resetBtn">Process Another</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js" type="module"></script>
+</body>
+</html>
